@@ -1,0 +1,79 @@
+.row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  padding: 16px;
+  border: 1px solid var(--yte-border);
+  border-radius: 12px;
+}
+
+.secondary {
+  margin-top: 12px;
+}
+
+.label {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.description {
+  margin: 4px 0 0;
+  color: var(--yte-muted);
+  font-size: 12px;
+  line-height: 1.4;
+}
+
+.switch {
+  position: relative;
+  flex: 0 0 42px;
+  width: 42px;
+  height: 24px;
+}
+
+.input {
+  position: absolute;
+  z-index: 1;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  cursor: pointer;
+  opacity: 0;
+}
+
+.track {
+  position: absolute;
+  inset: 0;
+  border-radius: 20px;
+  background: var(--yte-switch-off);
+}
+
+.track::before {
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: white;
+  content: "";
+  transition: transform 0.2s;
+}
+
+.input:checked + .track {
+  background: var(--yte-accent);
+}
+
+.input:checked + .track::before {
+  transform: translateX(18px);
+}
+
+.input:focus-visible + .track {
+  outline: 2px solid var(--yte-foreground);
+  outline-offset: 2px;
+}
+
+.input:disabled {
+  cursor: wait;
+}

@@ -1,0 +1,63 @@
+{
+  "feature": "preferences",
+  "storage": "storage.local",
+  "keys": {
+    "hideShorts": {
+      "type": "boolean",
+      "default": true
+    },
+    "hideRelevant": {
+      "type": "boolean",
+      "default": true
+    },
+    "homeColumns": {
+      "type": "integer",
+      "default": 4,
+      "range": [
+        3,
+        6
+      ]
+    },
+    "subscriptionColumns": {
+      "type": "integer",
+      "default": 4,
+      "range": [
+        3,
+        6
+      ]
+    },
+    "showSubscriptionChannels": {
+      "type": "boolean",
+      "default": true
+    }
+  },
+  "files": [
+    "src/types/preferences.ts",
+    "src/constants/preferences.ts",
+    "src/utils/preferences.ts",
+    "src/storage/preferenceItems.ts",
+    "src/storage/getPreferences.ts",
+    "src/storage/setPreferences.ts",
+    "src/storage/watchPreferences.ts",
+    "src/hooks/usePreferences.ts"
+  ],
+  "tests": [
+    "tests/utils/preferences.test.ts",
+    "tests/storage/preferences.test.ts",
+    "tests/youtube/page/entrypoint.test.ts"
+  ],
+  "impact": [
+    "type",
+    "defaults",
+    "normalization",
+    "storage",
+    "hook",
+    "UI",
+    "page behavior",
+    "tests"
+  ],
+  "behavior": [
+    "optional carousel-key read failure does not block existing preferences; core retains current state on storage failure",
+    "popup leaves loading state on read failure and rolls back optimistic state on write failure"
+  ]
+}

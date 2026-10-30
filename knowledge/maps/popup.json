@@ -1,0 +1,26 @@
+{
+  "feature": "popup",
+  "runtime": "React",
+  "files": [
+    "src/entrypoints/popup/main.tsx",
+    "src/entrypoints/popup/index.html",
+    "src/pages/Popup/PopupPage.tsx",
+    "src/components",
+    "src/hooks/usePreferences.ts",
+    "src/storage/getPreferences.ts",
+    "src/storage/setPreferences.ts",
+    "src/storage/watchPreferences.ts",
+    "src/styles/global.css"
+  ],
+  "tests": [
+    "tests/pages/PopupPage.test.tsx"
+  ],
+  "constraints": [
+    "components do not access storage",
+    "component CSS is colocated"
+  ],
+  "sharedControls": [
+    "ColumnSetting renders the home and subscription sliders",
+    "SettingToggle controls showSubscriptionChannels, enabled by default"
+  ]
+}

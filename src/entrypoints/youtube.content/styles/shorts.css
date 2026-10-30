@@ -1,0 +1,17 @@
+html[data-yte-hide-shorts="true"] [data-yte-shorts] {
+  display: none !important;
+}
+
+html[data-yte-hide-shorts="true"]
+  :is(ytd-guide-entry-renderer, ytd-mini-guide-entry-renderer):is(
+    [aria-label="Shorts" i],
+    [title="Shorts" i]
+  ),
+html[data-yte-hide-shorts="true"]
+  :is(ytd-guide-entry-renderer, ytd-mini-guide-entry-renderer):has(
+    a[href*="/shorts/"],
+    a[aria-label="Shorts" i],
+    a[title="Shorts" i]
+  ) {
+  display: none !important;
+}

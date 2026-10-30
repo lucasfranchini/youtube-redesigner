@@ -1,0 +1,82 @@
+/* YouTube may expose its palette only inside native components. */
+[data-yte-channel-header],
+[data-yte-channel-footer] {
+  --yte-channel-background: #fff;
+  --yte-channel-text: #0f0f0f;
+  --yte-channel-chip: #eee;
+  --yte-channel-accent: #065fd4;
+}
+html[dark] [data-yte-channel-header],
+html[dark] [data-yte-channel-footer] {
+  --yte-channel-background: #0f0f0f;
+  --yte-channel-text: #f1f1f1;
+  --yte-channel-chip: #272727;
+  --yte-channel-accent: #3ea6ff;
+}
+html[data-yte-page="subscriptions"] [data-yte-channel-header] {
+  position: sticky;
+  top: var(--ytd-masthead-height, 56px);
+  z-index: 1;
+  display: block;
+  flex: none;
+  margin-bottom: 24px;
+  padding: 12px 24px 8px;
+  background: var(--yt-spec-base-background, var(--yte-channel-background));
+  color: var(--yt-spec-text-primary, var(--yte-channel-text));
+  font: 14px Roboto, Arial, sans-serif;
+  box-sizing: border-box;
+  width: 100%;
+}
+[data-yte-channel-header] [hidden] { display: none !important; }
+/* Filtering and native refresh replace/reflow the old scroll anchor. Keep the
+   new filter at the top rather than pulling its first row behind the bar. */
+html[data-yte-page="subscriptions"] [data-yte-channel-header] + ytd-rich-grid-renderer {
+  overflow-anchor: none;
+}
+.yte-channel-row { display: flex; align-items: center; gap: 12px; min-width: 0; }
+.yte-channel-rail { position: relative; min-width: 0; flex: 1; }
+.yte-channel-viewport { display: flex; gap: 8px; overflow-x: auto; scroll-snap-type: x proximity; scroll-padding-inline: 4px; scrollbar-width: none; padding: 4px; }
+.yte-channel-viewport::-webkit-scrollbar { display: none; }
+[data-yte-channel-header] button { font: inherit; color: inherit; border: 0; cursor: pointer; }
+.yte-channel-item { background: transparent; flex: 0 0 80px; width: 80px; padding: 4px; display: flex; flex-direction: column; align-items: center; gap: 8px; border-radius: 8px; scroll-snap-align: start; }
+.yte-channel-avatar { display: grid; place-items: center; position: relative; width: 56px; height: 56px; border-radius: 50%; background: var(--yt-spec-badge-chip-background, var(--yte-channel-chip)); font-size: 24px; }
+.yte-channel-avatar img { position: absolute; inset: 0; width: 56px; height: 56px; border-radius: 50%; object-fit: cover; }
+.yte-channel-name { width: 100%; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; text-align: center; }
+.yte-channel-all, .yte-channel-action { border-radius: 8px; padding: 10px 14px; background: var(--yt-spec-badge-chip-background, var(--yte-channel-chip)); flex-shrink: 0; }
+.yte-channel-item:hover { background: var(--yt-spec-badge-chip-background, var(--yte-channel-chip)); }
+.yte-channel-item[aria-pressed="true"] .yte-channel-avatar { outline: 3px solid var(--yt-spec-call-to-action, var(--yte-channel-accent)); outline-offset: 2px; }
+.yte-channel-item[aria-pressed="true"] .yte-channel-name { color: var(--yt-spec-call-to-action, var(--yte-channel-accent)); font-weight: 600; }
+.yte-channel-all[aria-pressed="true"] { background: var(--yt-spec-text-primary, var(--yte-channel-text)); color: var(--yt-spec-base-background, var(--yte-channel-background)); }
+[data-yte-channel-header] button:focus-visible { outline: 2px solid var(--yt-spec-call-to-action, var(--yte-channel-accent)); outline-offset: 2px; }
+.yte-channel-arrow { position: absolute; top: 0; bottom: 0; width: 40px; font-size: 32px !important; }
+.yte-channel-previous { left: 0; background: linear-gradient(to right, var(--yt-spec-base-background, var(--yte-channel-background)) 70%, transparent); }
+.yte-channel-next { right: 0; background: linear-gradient(to left, var(--yt-spec-base-background, var(--yte-channel-background)) 70%, transparent); }
+.yte-channel-status { display: flex; align-items: center; gap: 12px; padding-top: 8px; font-size: 13px; }
+html[data-yte-page="subscriptions"] [data-yte-channel-hidden] { display: none !important; }
+[data-yte-channel-filter] ytd-rich-grid-row,
+[data-yte-channel-filter] ytd-rich-grid-row > #contents { display: contents !important; }
+[data-yte-channel-filter] ytd-continuation-item-renderer { display: none !important; }
+[data-yte-channel-filter][data-yte-channel-loading] ytd-continuation-item-renderer {
+  display: block !important; position: fixed !important; bottom: 1px; left: 50%;
+  width: 2px !important; height: 2px !important; overflow: hidden; opacity: 0; pointer-events: none;
+}
+@media (max-width: 700px) {
+  html[data-yte-page="subscriptions"] [data-yte-channel-header] { padding-inline: 8px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .yte-channel-viewport { scroll-behavior: auto; }
+}
+
+[data-yte-channel-footer] { display: flex; justify-content: center; flex-wrap: wrap; padding: 24px; min-height: 40px; color: var(--yt-spec-text-primary, var(--yte-channel-text)); font: 14px Roboto, Arial, sans-serif; }
+[data-yte-channel-footer][hidden], [data-yte-channel-footer] [hidden] { display: none !important; }
+[data-yte-channel-footer] button { font: inherit; color: inherit; border: 0; cursor: pointer; }
+[data-yte-channel-footer] button:focus-visible { outline: 2px solid var(--yte-channel-accent); outline-offset: 2px; }
+.yte-channel-spinner { width: 24px; height: 24px; flex: none; border: 3px solid var(--yte-channel-chip); border-top-color: var(--yte-channel-accent); border-radius: 50%; animation: yte-channel-spin .8s linear infinite; }
+@keyframes yte-channel-spin { to { transform: rotate(360deg); } }
+@media (prefers-reduced-motion: reduce) { .yte-channel-spinner { animation: none; } }
+
+/* Newness is a blue ring; selection uses a filled chip to distinguish the states. */
+.yte-channel-item[aria-pressed="true"] { background: var(--yt-spec-badge-chip-background, var(--yte-channel-chip)); }
+.yte-channel-item[aria-pressed="true"] .yte-channel-avatar { outline: none; }
+.yte-channel-item[data-yte-channel-new] .yte-channel-avatar { outline: 3px solid #3ea6ff; outline-offset: 2px; }
+ytd-guide-entry-renderer[data-yte-newness-seen] #newness-dot { visibility: hidden !important; }

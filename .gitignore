@@ -1,0 +1,8 @@
+node_modules/
+.output/
+.wxt/
+coverage/
+*.zip
+*.log
+web-ext.config.ts
+.pnpm-store/

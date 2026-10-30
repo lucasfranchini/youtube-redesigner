@@ -1,0 +1,68 @@
+{
+  "project": {
+    "name": "youtube-redesigner",
+    "target": "chromium-mv3",
+    "sourceRoot": "src",
+    "buildOutput": ".output/chrome-mv3",
+    "nodeMinimum": 22,
+    "packageManager": "npm",
+    "rules": "AGENTS.md"
+  },
+  "entrypoints": {
+    "popup": "src/entrypoints/popup/main.tsx",
+    "popupHtml": "src/entrypoints/popup/index.html",
+    "youtube": "src/entrypoints/youtube.content/index.ts",
+    "youtubeChannels": "src/entrypoints/youtube-channels.content/index.ts",
+    "youtubeGridBridge": "src/entrypoints/youtube-grid-bridge.content.ts"
+  },
+  "layers": {
+    "pages": "src/pages",
+    "components": "src/components",
+    "hooks": "src/hooks",
+    "youtube": "src/youtube",
+    "storage": "src/storage",
+    "utils": "src/utils",
+    "constants": "src/constants",
+    "types": "src/types",
+    "globalStyles": "src/styles",
+    "tests": "tests"
+  },
+  "moduleRules": {
+    "youtube": "YouTube DOM, authenticated same-origin integration and MAIN-world bridges, grouped by surface and capability",
+    "storage": "WebExtension storage access only",
+    "publicOperation": "Each behavior module exposes one primary operation; private helpers only support that operation"
+  },
+  "runtime": {
+    "permission": "storage",
+    "host": "https://www.youtube.com/*",
+    "runAt": "document_start",
+    "background": false,
+    "remoteCode": false,
+    "telemetry": false,
+    "channelsRunAt": "document_idle",
+    "gridBridgeWorld": "MAIN"
+  },
+  "external": [
+    "YouTube Web",
+    "Chromium MV3",
+    "WebExtension storage.local"
+  ],
+  "optionalExternal": [
+    "Opera GX"
+  ],
+  "generated": [
+    ".wxt",
+    ".output",
+    "coverage",
+    "node_modules"
+  ],
+  "localIgnored": [
+    "web-ext.config.ts"
+  ],
+  "commands": {
+    "dev": "npm run dev",
+    "prepare": "npm run postinstall",
+    "validate": "npm run validate",
+    "zip": "npm run zip"
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "schemaVersion": 3,
+  "knowledgeVersion": "1.6.2",
+  "readPolicy": "Read this index, then only maps required by the task.",
+  "maps": {
+    "project": "maps/project.json",
+    "preferences": "maps/preferences.json",
+    "popup": "maps/popup.json",
+    "homeGrid": "maps/home-grid.json",
+    "subscriptionGrid": "maps/subscription-grid.json",
+    "shorts": "maps/shorts.json",
+    "relevantSection": "maps/relevant-section.json",
+    "spaDom": "maps/spa-dom.json",
+    "subscriptionChannels": "maps/subscription-channels.json"
+  },
+  "guides": {
+    "architecture": "architecture.md",
+    "contracts": "contracts.md",
+    "dependencies": "dependencies.md",
+    "operations": "operations.md",
+    "structure": "structure.md"
+  }
+}

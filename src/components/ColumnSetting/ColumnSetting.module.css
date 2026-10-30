@@ -1,0 +1,45 @@
+.box {
+  margin-top: 12px;
+  padding: 16px;
+  border: 1px solid var(--yte-border);
+  border-radius: 12px;
+}
+
+.heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+}
+
+.label {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.description {
+  margin: 4px 0 0;
+  color: var(--yte-muted);
+  font-size: 12px;
+  line-height: 1.4;
+}
+
+.value {
+  padding: 6px 10px;
+  border-radius: 8px;
+  background: var(--yte-surface);
+  font-weight: bold;
+}
+
+.range {
+  width: 100%;
+  margin-top: 18px;
+  accent-color: var(--yte-accent);
+}
+
+.ends {
+  display: flex;
+  justify-content: space-between;
+  color: var(--yte-muted);
+  font-size: 11px;
+}

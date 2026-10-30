@@ -1,0 +1,33 @@
+{
+  "feature": "subscriptionColumns",
+  "dependsOn": [
+    "preferences",
+    "popup",
+    "subscriptionChannels"
+  ],
+  "preference": "subscriptionColumns",
+  "route": "/feed/subscriptions",
+  "cssVariable": "--yte-cols",
+  "files": [
+    "src/components/ColumnSetting/ColumnSetting.tsx",
+    "src/components/ColumnSetting/ColumnSetting.module.css",
+    "src/pages/Popup/PopupPage.tsx",
+    "src/youtube/page/applyPreferences.ts",
+    "src/youtube/page/updatePageMarker.ts",
+    "src/utils/youtubeRoutes.ts",
+    "src/types/youtube.ts",
+    "src/constants/youtube.ts",
+    "src/entrypoints/youtube.content/styles/grids.css",
+    "src/entrypoints/youtube-channels.content/styles/channels.css"
+  ],
+  "tests": [
+    "tests/pages/PopupPage.test.tsx",
+    "tests/utils/preferences.test.ts",
+    "tests/storage/preferences.test.ts",
+    "tests/utils/youtube.test.ts",
+    "tests/youtube/page/pageState.test.ts"
+  ],
+  "behavior": [
+    "video pagination spinner/status are siblings after the native grid; catalog loading/error status is inside the carousel header"
+  ]
+}

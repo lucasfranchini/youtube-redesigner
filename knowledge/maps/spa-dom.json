@@ -1,0 +1,45 @@
+{
+  "feature": "spaDom",
+  "events": [
+    "yt-navigate-start",
+    "yt-navigate-finish",
+    "wxt:locationchange"
+  ],
+  "files": [
+    "src/entrypoints/youtube.content/index.ts",
+    "src/entrypoints/youtube-channels.content/index.ts",
+    "src/entrypoints/youtube-grid-bridge.content.ts",
+    "src/youtube/page/observeDom.ts",
+    "src/youtube/page/applyPreferences.ts",
+    "src/youtube/page/updatePageMarker.ts",
+    "src/youtube/subscriptions/controller.ts",
+    "src/youtube/subscriptions/feed/refreshFeed.ts",
+    "src/youtube/subscriptions/sidebar/readOrder.ts",
+    "src/youtube/subscriptions/sidebar/trackNewness.ts",
+    "src/youtube/bridge/installBridges.ts",
+    "src/youtube/bridge/installGridRefreshBridge.ts",
+    "src/youtube/bridge/installCardOwnerBridge.ts"
+  ],
+  "tests": [
+    "tests/youtube/page/domObserver.test.ts",
+    "tests/youtube/page/pageState.test.ts",
+    "tests/youtube/page/entrypoint.test.ts",
+    "tests/youtube/subscriptions/controller.test.ts",
+    "tests/youtube/subscriptions/sidebarOrder.test.ts",
+    "tests/youtube/subscriptions/refresh.test.ts",
+    "tests/youtube/subscriptions/newness.test.ts",
+    "tests/youtube/subscriptions/owners.test.ts",
+    "tests/utils/youtube.test.ts"
+  ],
+  "behavior": [
+    "added subtrees and relevant attribute/text changes are coalesced and reconciled incrementally",
+    "SPA navigation updates route markers and schedules a full reconciliation",
+    "WXT invalidation cleans watchers, observers, requests, frames and MAIN bridge listeners",
+    "the channel scanner is disconnected while the preference is disabled",
+    "subscription carousel suspends on navigation start and validates catalog/session on return",
+    "core and carousel use independent observers; core tolerates an absent or replaced document root",
+    "refresh never navigates or reloads; superseded requests are cancelled",
+    "owner bridge reads are synchronous and scoped to subscriptions; the transient response attribute is removed after every read",
+    "explicit channel or Todos selection resets document scroll; restoration, scans, pagination and refresh completion preserve it"
+  ]
+}

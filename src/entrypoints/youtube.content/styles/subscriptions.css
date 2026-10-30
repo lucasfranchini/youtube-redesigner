@@ -1,0 +1,4 @@
+html[data-yte-hide-relevant="true"][data-yte-page="subscriptions"]
+  [data-yte-relevant] {
+  display: none !important;
+}

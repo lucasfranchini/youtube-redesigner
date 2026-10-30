@@ -1,0 +1,20 @@
+{
+  "feature": "shorts",
+  "preference": "hideShorts",
+  "files": [
+    "src/constants/youtube.ts",
+    "src/youtube/shorts/findShortsTargets.ts",
+    "src/youtube/shorts/markShorts.ts",
+    "src/utils/youtubeUrls.ts",
+    "src/entrypoints/youtube.content/styles/shorts.css"
+  ],
+  "tests": [
+    "tests/youtube/page/markers.test.ts",
+    "tests/utils/youtube.test.ts",
+    "tests/youtube/page/entrypoint.test.ts"
+  ],
+  "behavior": [
+    "core initialization and Shorts scanning remain independent of carousel failures",
+    "incremental reconciliation removes stale markers from recycled cards and does not classify ordinary rich shelves as Shorts"
+  ]
+}

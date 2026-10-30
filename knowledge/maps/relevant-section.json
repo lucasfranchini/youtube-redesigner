@@ -1,0 +1,13 @@
+{
+  "feature": "relevantSection",
+  "preference": "hideRelevant",
+  "route": "/feed/subscriptions",
+  "files": [
+    "src/constants/youtube.ts",
+    "src/youtube/relevant/findRelevantSections.ts",
+    "src/youtube/relevant/markRelevantSections.ts",
+    "src/utils/text.ts",
+    "src/entrypoints/youtube.content/styles/subscriptions.css"
+  ],
+  "tests": ["tests/youtube/page/markers.test.ts"]
+}

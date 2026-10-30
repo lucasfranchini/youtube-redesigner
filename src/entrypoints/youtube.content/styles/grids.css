@@ -1,0 +1,30 @@
+html[data-yte-page="home"] ytd-rich-grid-renderer {
+  --yte-active-cols: var(--yte-home-cols, 4);
+}
+
+html[data-yte-page="subscriptions"] ytd-rich-grid-renderer {
+  --yte-active-cols: var(--yte-cols, 4);
+}
+
+html[data-yte-page="home"] ytd-rich-grid-renderer,
+html[data-yte-page="subscriptions"] ytd-rich-grid-renderer {
+  --ytd-rich-grid-items-per-row: var(--yte-active-cols, 4) !important;
+  --ytd-rich-grid-posts-per-row: var(--yte-active-cols, 4) !important;
+  --ytd-rich-grid-slim-items-per-row: var(--yte-active-cols, 4) !important;
+}
+
+@media (max-width: 1000px) {
+  html[data-yte-page="home"] ytd-rich-grid-renderer,
+  html[data-yte-page="subscriptions"] ytd-rich-grid-renderer {
+    --ytd-rich-grid-items-per-row: min(var(--yte-active-cols, 4), 3) !important;
+    --ytd-rich-grid-posts-per-row: min(var(--yte-active-cols, 4), 3) !important;
+  }
+}
+
+@media (max-width: 700px) {
+  html[data-yte-page="home"] ytd-rich-grid-renderer,
+  html[data-yte-page="subscriptions"] ytd-rich-grid-renderer {
+    --ytd-rich-grid-items-per-row: 2 !important;
+    --ytd-rich-grid-posts-per-row: 2 !important;
+  }
+}

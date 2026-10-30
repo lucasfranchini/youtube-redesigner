@@ -1,0 +1,38 @@
+:root {
+  color-scheme: light dark;
+  font-family: Roboto, Arial, sans-serif;
+  --yte-accent: #ff0033;
+  --yte-background: #ffffff;
+  --yte-foreground: #0f0f0f;
+  --yte-muted: #606060;
+  --yte-border: #e5e5e5;
+  --yte-surface: #eeeeee;
+  --yte-switch-off: #aaaaaa;
+  --yte-success: #287a35;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  width: 340px;
+  margin: 0;
+  background: var(--yte-background);
+  color: var(--yte-foreground);
+}
+
+button,
+input {
+  font: inherit;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --yte-background: #0f0f0f;
+    --yte-foreground: #f1f1f1;
+    --yte-muted: #aaaaaa;
+    --yte-border: #444444;
+    --yte-surface: #272727;
+  }
+}
